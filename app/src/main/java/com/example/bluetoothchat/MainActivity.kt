@@ -24,13 +24,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Ivbluetooth = findViewById(R.id.bluetoothIv)
         badapter=BluetoothAdapter.getDefaultAdapter()
         Btnon=findViewById(R.id.onBtn)
         Btnoff=findViewById(R.id.offBtn)
-        Btndisc=findViewById(R.id.discBtn)
-        Btngpd=findViewById(R.id.gpdBtn)
-        pairedTv=findViewById(R.id.pairedTv)
         if(badapter==null){
             Toast.makeText(this, "Bluetooth is not available!", Toast.LENGTH_SHORT).show()
             finish()
@@ -83,8 +79,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "please turn on Bluetooth", Toast.LENGTH_SHORT).show()
             }
         }
-        implementListeners();
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -100,9 +94,6 @@ class MainActivity : AppCompatActivity() {
                 }
         }
         super.onActivityResult(requestCode, resultCode, data)
-    }
-    fun implementListeners(){
-
     }
 }
 
